@@ -7,11 +7,6 @@ class WordsController < ApplicationController
     @words = Word.all
   end
 
-  # GET /words/1
-  # GET /words/1.json
-  def show
-  end
-
   # GET /words/new
   def new
     @word = Word.new
@@ -28,7 +23,7 @@ class WordsController < ApplicationController
 
     respond_to do |format|
       if @word.save
-        format.html { redirect_to @word, notice: 'Word was successfully created.' }
+        format.html { redirect_to words_url, notice: 'Word was successfully created.' }
         format.json { render :show, status: :created, location: @word }
       else
         format.html { render :new }
@@ -42,7 +37,7 @@ class WordsController < ApplicationController
   def update
     respond_to do |format|
       if @word.update(word_params)
-        format.html { redirect_to @word, notice: 'Word was successfully updated.' }
+        format.html { redirect_to words_url, notice: 'Word was successfully updated.' }
         format.json { render :show, status: :ok, location: @word }
       else
         format.html { render :edit }

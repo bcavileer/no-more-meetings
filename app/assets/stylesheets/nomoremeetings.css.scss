@@ -1,0 +1,21 @@
+
+table#meeting_bingo {
+  width: 100%;
+
+  td {
+    border: 1px solid black;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    width: 20%;
+    font-family: "Source Code Pro", Monaco, monospace;
+    font-size: 2em;
+
+    &.middle-cell img {
+      width: 100%;
+    }
+  }
+}
+@media print {
+  a { display: none !important; }
+}

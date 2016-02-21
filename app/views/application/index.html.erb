@@ -1,0 +1,48 @@
+<%= link_to 'Edit Words', words_path %>
+<% if @board.blank? %>
+    <h4>Not enough words - needs <%= 24 - Word.count %> more words to make a card</h4>
+<% else %>
+    <%= link_to 'New Card', root_path %>
+    <a href="#" onclick="window.print();return false;">Print Card</a>
+    <table id="meeting_bingo">
+      <% @board.each do |row| %>
+          <% if row.size == 4 %>
+              <tr>
+                <td>
+                  <%= row[0] %>
+                </td>
+                <td>
+                  <%= row[1] %>
+                </td>
+                <td>
+                  <%= image_tag('nomoremeetings.jpg') %>
+                </td>
+                <td>
+                  <%= row[2] %>
+                </td>
+                <td>
+                  <%= row[3] %>
+                </td>
+              </tr>
+          <% else %>
+              <tr>
+                <td>
+                  <%= row[0] %>
+                </td>
+                <td>
+                  <%= row[1] %>
+                </td>
+                <td>
+                  <%= row[2] %>
+                </td>
+                <td>
+                  <%= row[3] %>
+                </td>
+                <td>
+                  <%= row[4] %>
+                </td>
+              </tr>
+          <% end %>
+      <% end %>
+    </table>
+<% end %>

@@ -1,9 +1,13 @@
-<%= link_to 'Edit Words', words_path %>
 <% if @board.blank? %>
     <h4>Not enough words - needs <%= 24 - Word.count %> more words to make a card</h4>
+    <%= link_to 'Edit Words', words_path, class: 'btn' %>
 <% else %>
-    <%= link_to 'New Card', root_path %>
-    <a href="#" onclick="window.print();return false;">Print Card</a>
+    <div class="btn-group" role="group" aria-label="Controls">
+      <%= link_to 'New Board', root_path, class: 'btn' %>
+      <a href="#" class="btn" onclick="window.print();return false;">Print Board</a>
+      <%= link_to 'Edit Words', words_path, class: 'btn' %>
+    </div>
+
     <table id="meeting_bingo">
       <% @board.each do |row| %>
           <% if row.size == 4 %>
